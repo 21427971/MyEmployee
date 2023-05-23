@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MyEmployee.Models.Role>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee's Roles</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Role_Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role_Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID}, new { @class = "btn btn-sm btn-primary" })|
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-sm btn-info" })|
+           @* @Html.ActionLink("Remove", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })*@
+        </td>
+    </tr>
+}
+
+</table>
